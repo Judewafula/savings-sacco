@@ -1,0 +1,36 @@
+
+
+body {
+    background-color: #f0f0f0; /* Replace #f0f0f0 with your desired color code */
+}
+
+p {
+    color: red;
+}
+
+
+.my-class {
+    color: blue;
+}
+
+#my-id {
+    color: green;
+}
+.my-class4 {
+    color: blue;
+}
+
+.my-class3 {
+    color: blue;
+    background-color: lightgreen;
+}
+
+.my-class2 {
+    color: blue;
+    background-color: lightgreen;
+}
+
+.my-class1 {
+    color: blue;
+    background-color: lightgreen;
+}
