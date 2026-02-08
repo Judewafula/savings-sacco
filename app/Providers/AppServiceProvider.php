@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use App\View\Components\Banner;
+use Illuminate\Support\Facades\URL; 
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,5 +34,13 @@ class AppServiceProvider extends ServiceProvider
             $view->with('title', 'Your Title Here');
             $view->with('message', 'Your Message Here');
         });
+{
+    if(env('APP_ENV') === 'production') {
+        URL::forceScheme('https');
     }
 }
+
+    }
+}
+
+
