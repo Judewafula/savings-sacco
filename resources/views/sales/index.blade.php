@@ -45,7 +45,7 @@
         <p>No sales have been recorded yet.</p>
     @endif
 
-    <a href="{{ route('dashboard') }}">Go to Dashboard</a>
+   
 
 </div>
 @endsection

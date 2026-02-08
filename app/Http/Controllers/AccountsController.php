@@ -22,6 +22,9 @@ class AccountsController extends Controller
 
     public function store(Request $request)
     {
+       if (auth()->user()->role !== 'admin') {
+        abort(403, 'Unauthorized. Only admin can create users.');
+    }
         // Logic for storing a new account
     }
 
@@ -34,4 +37,19 @@ class AccountsController extends Controller
     {
         // Logic for deleting an account
     }
+
+
+public function create()
+{
+    if (auth()->user()->role !== 'admin') {
+        abort(403, 'Unauthorized. Only admin can create users.');
+    }
+    return view('users.create');
+}
+
+public function __construct()
+{
+    $this->middleware('auth');
+    $this->middleware('is_admin')->only(['create', 'store', 'edit', 'update', 'destroy']);
+}
 }

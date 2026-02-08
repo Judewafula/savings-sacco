@@ -1,33 +1,48 @@
 /**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
+ * Load project dependencies
+ * Bootstrap, Popper, Axios, and other JS libraries.
  */
 
 require('./bootstrap');
-require('bootstrap');
-
-window.Vue = require('vue').default;
 
 /**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
+ * If you are using Bootstrap's JavaScript components (modals, dropdowns, 
+ * off-canvas, navbar toggle, etc.), initialize them below.
+ */
+try {
+    window.bootstrap = require('bootstrap');
+} catch (e) {
+    console.error("Bootstrap failed to load:", e);
+}
+
+/**
+ * If you ARE NOT using Vue, remove all Vue related code.
+ * The code below has been removed because it is deprecated.
  *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ * If you want Vue later, you can reinstall it.
  */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// window.Vue = require('vue').default;
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+// const app = new Vue({
+//     el: '#app',
+// });
 
 /**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
+ * You may add your own custom scripts here.
+ * Example: for menu toggle, sidebar collapse, etc.
  */
 
-const app = new Vue({
-    el: '#app',
+// Example: Navbar mobile toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+
+    if (menuToggle && menu) {
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    }
 });
