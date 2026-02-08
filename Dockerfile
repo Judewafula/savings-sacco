@@ -1,8 +1,8 @@
 FROM php:8.2-cli
 
-# Install system dependencies
+# Install system dependencies including SQLite dev headers
 RUN apt-get update && apt-get install -y \
-    git unzip libzip-dev sqlite3 libicu-dev \
+    git unzip libzip-dev libicu-dev libsqlite3-dev \
     && docker-php-ext-install \
         pdo \
         pdo_sqlite \
@@ -26,7 +26,7 @@ RUN mkdir -p storage/framework/cache \
     database \
     && touch database/database.sqlite
 
-# Install PHP dependencies
+# Install dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 # Fix permissions
